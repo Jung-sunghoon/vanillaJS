@@ -9,6 +9,9 @@ let itemId = 0;
 const inputButton = document.querySelector(".inputBtn");
 // 아이템 리스트
 const itemListElement = document.querySelector(".itemList");
+
+// 버튼 클릭 시 아이템 추가
+inputButton.addEventListener("click", addItem);
 // form의 제출 막고 아이템 추가하기
 const form = document.querySelector("form");
 
@@ -21,18 +24,20 @@ form.addEventListener("submit", function (event) {
 function addItem() {
   // 아이템 input 박스 가져오기
   const itemInput = document.querySelector(".item");
-  // 추가하는 아이템 value
+  // 추가하는 아이템 value 및 띄어쓰기 제거
   const newItemText = itemInput.value.trim();
 
   // input에 아무 것도 없으면 아이템 추가 X
   if (newItemText === "") {
+    alert("텍스트를 입력해주세요.");
     itemInput.focus();
     return;
   }
 
   // 동일한 아이템이 있을 경우 아이템 추가 X
   if (itemList.some((item) => item.text === newItemText)) {
-    alert("이미 동일한 텍스트를 가진 아이템이 있습니다.");
+    alert("이미 동일한 아이템이 있습니다.");
+    itemInput.focus();
     return;
   }
 
@@ -59,7 +64,7 @@ function renderList() {
   let list = "<ul>";
   for (const item of itemList) {
     const checkedClass = item.checked ? "checked" : "";
-    const checkBtnColor = item.checked ? "blue" : "black";
+    const checkBtnColor = item.checked ? "blue" : "gray";
     list += `
       <li class="${checkedClass}">
         ${item.text}
@@ -69,7 +74,7 @@ function renderList() {
   }
   list += "</ul>";
 
-  // 아이템이 없으면 리스트에 아무것도 안보이게
+  // 아이템이 없으면 리스트에 아무것도 안보이게 하기
   if (itemList.length === 0) {
     list = "";
   }

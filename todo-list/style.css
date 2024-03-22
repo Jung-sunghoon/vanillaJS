@@ -1,5 +1,4 @@
 body {
-  caret-color: #02aab0;
   color: #272341;
 }
 
@@ -47,6 +46,7 @@ body {
   margin-left: 5px;
   color: white;
   border: 0;
+  cursor: pointer;
 }
 
 ul {
@@ -61,7 +61,6 @@ ul li {
   position: relative;
   padding: 12px 10px 12px 10px;
   font-size: 18px;
-  transition: 0.3s;
 }
 
 li {
@@ -83,6 +82,7 @@ ul li:hover {
   border: none;
   background: rgba(255, 255, 255, 0);
   font-size: 30px;
+  color: gray;
 }
 
 .checkBtn {
@@ -104,7 +104,7 @@ ul li:hover {
 }
 
 ul li.checked {
-  background: #ddd;
+  /* background: #ddd; */
   text-decoration: line-through;
 }
 
