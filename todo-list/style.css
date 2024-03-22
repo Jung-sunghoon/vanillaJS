@@ -71,7 +71,7 @@ ul li:hover {
   background: #ddd;
 }
 
-.delete {
+.deleteBtn {
   position: absolute;
   right: 10px;
   top: 0;
@@ -98,7 +98,7 @@ ul li:hover {
   font-size: 30px;
 }
 
-.delete:hover,
+.deleteBtn:hover,
 .checkBtn:hover {
   color: blue;
 }
@@ -131,7 +131,7 @@ ul li.checked {
     padding: 0px 30px;
   }
 
-  .delete {
+  .deleteBtn {
     position: absolute;
     align-items: center;
     text-align: center;

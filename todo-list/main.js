@@ -69,7 +69,7 @@ function renderList() {
       <li class="${checkedClass}">
         ${item.text}
         <span class="checkBtn" style="color: ${checkBtnColor};" data-id="${item.id}">\u2713</span>
-        <span class="delete" data-id="${item.id}">\u00D7</span>
+        <span class="deleteBtn" data-id="${item.id}">\u00D7</span>
       </li>`;
   }
   list += "</ul>";
@@ -88,7 +88,7 @@ itemListElement.addEventListener("click", function (event) {
   const target = event.target;
   if (target.classList.contains("checkBtn")) {
     toggleCheck(target.dataset.id);
-  } else if (target.classList.contains("delete")) {
+  } else if (target.classList.contains("deleteBtn")) {
     deleteItem(target.dataset.id);
   } else if (target.tagName === "LI") {
     const itemId = target.querySelector(".checkBtn").dataset.id;
