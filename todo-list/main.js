@@ -1,21 +1,20 @@
 "use strict";
 
+// 상수 정의
+const ERROR_MESSAGES = {
+  emptyText: "텍스트를 입력해주세요.",
+  duplicateItem: "이미 동일한 아이템이 있습니다.",
+};
+
 // 아이템 리스트 배열
 let itemList = [];
 // 아이템 삭제 및 체크 토글 용 아이디
 let itemId = 0;
 
-// 아이템 추가 버튼 const
-const inputButton = document.querySelector(".inputBtn");
-// 아이템 리스트
-const itemListElement = document.querySelector(".itemList");
-
 // 버튼 클릭 시 아이템 추가
-inputButton.addEventListener("click", addItem);
-// form의 제출 막고 아이템 추가하기
-const form = document.querySelector("form");
-
-form.addEventListener("submit", function (event) {
+document.querySelector(".inputBtn").addEventListener("click", addItem);
+// form의 제출 막고 엔터 누르면 아이템 추가하기
+document.querySelector("form").addEventListener("submit", function (event) {
   event.preventDefault(); // 폼의 기본 제출 동작 막기
   addItem();
 });
@@ -23,20 +22,20 @@ form.addEventListener("submit", function (event) {
 // 아이템 추가 함수
 function addItem() {
   // 아이템 input 박스 가져오기
-  const itemInput = document.querySelector(".item");
+  const itemInput = document.querySelector(".inputItem");
   // 추가하는 아이템 value 및 띄어쓰기 제거
   const newItemText = itemInput.value.trim();
 
   // input에 아무 것도 없으면 아이템 추가 X
-  if (newItemText === "") {
-    alert("텍스트를 입력해주세요.");
+  if (!newItemText) {
+    alert(ERROR_MESSAGES.emptyText);
     itemInput.focus();
     return;
   }
 
   // 동일한 아이템이 있을 경우 아이템 추가 X
   if (itemList.some((item) => item.text === newItemText)) {
-    alert("이미 동일한 아이템이 있습니다.");
+    alert(ERROR_MESSAGES.duplicateItem);
     itemInput.focus();
     return;
   }
@@ -80,15 +79,13 @@ function renderList() {
   }
 
   // 아이템 리스트에 리스트 추가
-  itemListElement.innerHTML = list;
+  document.querySelector(".itemList").innerHTML = list;
 }
 
 // 아이템 리스트에서 체크와 삭제 버튼 이벤트 리스너
-itemListElement.addEventListener("click", function (event) {
+document.querySelector(".itemList").addEventListener("click", function (event) {
   const target = event.target;
-  if (target.classList.contains("checkBtn")) {
-    toggleCheck(target.dataset.id);
-  } else if (target.classList.contains("deleteBtn")) {
+  if (target.classList.contains("deleteBtn")) {
     deleteItem(target.dataset.id);
   } else if (target.tagName === "LI") {
     const itemId = target.querySelector(".checkBtn").dataset.id;
