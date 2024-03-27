@@ -12,7 +12,7 @@ let itemList = [];
 let itemId = 0;
 
 // 버튼 클릭 시 아이템 추가
-document.querySelector(".inputBtn").addEventListener("click", addItem);
+document.querySelector(".addBtn").addEventListener("click", addItem);
 // form의 제출 막고 엔터 누르면 아이템 추가하기
 document.querySelector("form").addEventListener("submit", function (event) {
   event.preventDefault(); // 폼의 기본 제출 동작 막기
@@ -34,7 +34,15 @@ function addItem() {
   }
 
   // 동일한 아이템이 있을 경우 아이템 추가 X
-  if (itemList.some((item) => item.text === newItemText)) {
+  if (
+    itemList.some((item) => item.text === newItemText) ||
+    itemList.some(
+      (item) => item.text.toLowerCase() === newItemText.toLowerCase()
+    ) ||
+    itemList.some(
+      (item) => item.text.replace(/\s/g, "") === newItemText.replace(/\s/g, "")
+    )
+  ) {
     alert(ERROR_MESSAGES.duplicateItem);
     itemInput.focus();
     return;
@@ -62,6 +70,7 @@ function renderList() {
   // ul 태그와 li 태그로 리스트 추가하기
   let list = "<ul>";
   for (const item of itemList) {
+    console.log(item);
     const checkedClass = item.checked ? "checked" : "";
     const checkBtnColor = item.checked ? "blue" : "gray";
     list += `
