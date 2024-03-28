@@ -1,3 +1,3 @@
 # vanillaJS
 
-바닐라 js로 실습 연습
+자바스크립트 책(곽문기 지음)을 통한 JavaScript 실습 연습
