@@ -70,7 +70,6 @@ function renderList() {
   // ul 태그와 li 태그로 리스트 추가하기
   let list = "<ul>";
   for (const item of itemList) {
-    console.log(item);
     const checkedClass = item.checked ? "checked" : "";
     const checkBtnColor = item.checked ? "blue" : "gray";
     list += `
