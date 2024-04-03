@@ -59,43 +59,26 @@ ul {
 ul li {
   cursor: pointer;
   position: relative;
-  padding: 12px 10px 12px 10px;
+  padding: 12px;
   font-size: 18px;
 }
 
 li {
   border-bottom: 1px solid;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnWrap {
+  position: absolute;
+  border: none;
+  right: 10px;
+  top: 7px;
+  font-size: 30px;
 }
 
 ul li:hover {
   background: #ddd;
-}
-
-.deleteBtn {
-  position: absolute;
-  right: 10px;
-  top: 0;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  padding: 4px 8px;
-  border: none;
-  background: rgba(255, 255, 255, 0);
-  font-size: 30px;
-  color: gray;
-}
-
-.checkBtn {
-  position: absolute;
-  right: 50px;
-  top: 0;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  padding: 6px 8px;
-  border: none;
-  background: rgba(255, 255, 255, 0);
-  font-size: 30px;
 }
 
 .deleteBtn:hover,

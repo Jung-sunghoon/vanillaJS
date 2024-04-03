@@ -38,9 +38,6 @@ function addItem() {
     itemList.some((item) => item.text === newItemText) ||
     itemList.some(
       (item) => item.text.toLowerCase() === newItemText.toLowerCase()
-    ) ||
-    itemList.some(
-      (item) => item.text.replace(/\s/g, "") === newItemText.replace(/\s/g, "")
     )
   ) {
     alert(ERROR_MESSAGES.duplicateItem);
@@ -75,8 +72,10 @@ function renderList() {
     list += `
       <li class="${checkedClass}">
         ${item.text}
-        <span class="checkBtn" style="color: ${checkBtnColor};" data-id="${item.id}">\u2713</span>
-        <span class="deleteBtn" data-id="${item.id}">\u00D7</span>
+        <div class="btnWrap">
+          <span class="checkBtn" style="color: ${checkBtnColor};" data-id="${item.id}">\u2713</span>
+          <span class="deleteBtn" data-id="${item.id}">\u00D7</span>
+        </div>
       </li>`;
   }
   list += "</ul>";
