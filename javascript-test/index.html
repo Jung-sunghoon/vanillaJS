@@ -18,21 +18,25 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="./index.js"></script>
     <div class="container">
-      <div class="row">
-        <div class="col">col</div>
-        <div class="col">col</div>
-        <div class="col">col</div>
-      </div>
-      <div class="row">
-        <div class="col-3">col</div>
-        <div class="col-4">col</div>
-        <div class="col-5">col</div>
-      </div>
-      <div class="row">
-        <div class="col">col</div>
-        <div class="col-6">col-6</div>
-        <div class="col">col</div>
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <input
+            type="search"
+            class="form-control"
+            name="input"
+            placeholder="아래 문장 입력 후 엔터"
+          />
+          <input
+            type="text"
+            class="form-control"
+            name="answer"
+            disabled
+            value="나의 살던 고향은 꽃피는 산골"
+          />
+          <div class="alert alert-dark" role="alert"></div>
+        </div>
       </div>
     </div>
   </body>
